@@ -1,0 +1,140 @@
+---
+layout: default
+title: Store
+permalink: /store/
+---
+
+<!-- Section:-->
+<section class="pb-0">
+  <div
+    class="bg-holder"
+    style="
+      background-image: url(/assets/img/illustrations/cta-bg.png);
+      background-position: center;
+      background-size: cover;
+    "
+  ></div>
+  <!--/.bg-holder-->
+
+  <div
+    class="bg-holder"
+    style="
+      background-image: url(/assets/img/illustrations/cta-bg-1.png);
+      background-position: right top;
+      background-size: auto;
+      margin-top: -38px;
+      margin-left: -200px;
+    "
+  ></div>
+  <!--/.bg-holder-->
+
+  <div class="container">
+    <div class="row flex-center">
+      <div class="col-xxl-9 py-5 text-center">
+        <h1 class="fw-bold mb-4 text-gradient fs-6">Store</h1>
+        <p class="mb-6 mx-xxl-11"><a href="/">Home</a> > Store</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=========================-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7 col-xxl-5 mx-auto text-center mt-4">
+      <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">Books</h5>
+    </div>
+  </div>
+  <!-- BOOKS -->
+  <div class="row">
+    <!-- Start -->
+    {% assign books = site.store | where: "category","Book" %} {% for book in
+    books %}
+    <div class="col-md-3 py-5 text-center">
+      <!-- product -->
+      {{ book.content }}
+      <!-- end product -->
+    </div>
+    {% endfor %}
+    <!-- End-->
+  </div>
+  <!-- ACCESSORIES -->
+  <div class="row">
+    <div class="col-lg-7 col-xxl-5 mx-auto text-center mt-4">
+      <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">Accessories</h5>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Start -->
+    {% assign items = site.store | where: "category","Accessory" %} {% for item
+    in items %}
+    <div class="col-md-12 bootstrap snippets bootdeys">
+      <!-- product -->
+      <div class="product-content product-wrap clearfix">
+        <div class="row">
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="product-image">
+              <img src="{{ item.image }}" alt="194x228" class="img-fluid" style="max-height: 310px;" />
+              <!-- <span class="tag2 hot"> New </span> -->
+            </div>
+          </div>
+          <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="product-deatil">
+              <h5 class="name">
+                <a href="#">
+                  {{ item.title }} <span>{{ item.category }}</span>
+                </a>
+              </h5>
+              <!-- <p class="price-container">
+                <span>{{ book.price }}</span>
+              </p> -->
+              <span class="tag1"></span>
+            </div>
+            <div class="description">
+              <p>{{ item.content }}</p>
+            </div>
+            <div class="product-info smart-form">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <!-- <a href="{{item.buy_url}}" target="_blank">
+                    <img class="amazon" src="/assets/img/gallery/amazon.png" />
+                  </a> -->
+                  <a
+                    href="{{item.buy_url}}"
+                    class="btn btn-primary shadow-klean order-0"
+                    target="_blank"
+                  >
+                    <i data-feather="shopping-bag"></i>
+                    <span class="fw-bold">Buy on Amazon</span>
+                  </a>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="rating">
+                    <label for="stars-rating-5"
+                      ><i class="fa fa-star"></i
+                    ></label>
+                    <label for="stars-rating-4"
+                      ><i class="fa fa-star"></i
+                    ></label>
+                    <label for="stars-rating-3"
+                      ><i class="fa fa-star text-primary"></i
+                    ></label>
+                    <label for="stars-rating-2"
+                      ><i class="fa fa-star text-primary"></i
+                    ></label>
+                    <label for="stars-rating-1"
+                      ><i class="fa fa-star text-primary"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end product -->
+    </div>
+    {% endfor %}
+    <!-- End-->
+  </div>
+</div>

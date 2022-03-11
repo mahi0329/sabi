@@ -1,0 +1,168 @@
+---
+layout: default
+title: Home
+---
+
+<section id="home">
+  <div
+    class="bg-holder d-none d-md-block bg-size"
+    style="
+      background-image: url(assets/img/illustrations/hero.png);
+      background-position: right bottom;
+    "
+  ></div>
+  <!--/.bg-holder-->
+
+  <div
+    class="bg-holder"
+    style="
+      background-image: url(assets/img/illustrations/heroheader-bg.png);
+      background-position: center;
+      background-size: contain;
+    "
+  ></div>
+  <!--/.bg-holder-->
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center">
+        <h1 class="fw-bold display-4 fs-4 fs-lg-6 fs-xxl-7 text-gradient">
+          Share your words with the world
+        </h1>
+        <h1 class="text-700">
+          <span class="fw-bold">IziMarkPublishing</span>
+        </h1>
+        <div class="output mt-4 fs-0" id="output" style="min-height: 100px">
+          <h4 class="cursor"></h4>
+          <p class="fw-bold text-primary"></p>
+        </div>
+        <a class="btn hover-top btn-glow btn-klean" href="/join-us/#submission"
+          >Publish Now</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================-->
+<!-- Section: Our Mission-->
+<section id="our-mission">
+  <div
+    class="bg-holder"
+    style="
+      background-image: url(assets/img/illustrations/cta-bg.png);
+      background-position: center;
+      background-size: cover;
+    "
+  ></div>
+  <!--/.bg-holder-->
+
+  <div
+    class="bg-holder"
+    style="
+      background-image: url(assets/img/illustrations/cta-bg-1.png);
+      background-position: right top;
+      background-size: auto;
+      margin-top: -38px;
+      margin-left: -200px;
+    "
+  ></div>
+  <!--/.bg-holder-->
+
+  <div class="container">
+    <div class="row flex-center">
+      <div class="col-xxl-9 py-5 text-center">
+        <h1 class="fw-bold mb-4 text-gradient fs-6">Our Mission</h1>
+        <p class="mb-6 mx-xxl-11">
+          We are committed to helping Authors achieve personal success through
+          developing & growing their brands. We help writers see their full
+          potential as Authors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=========================-->
+<!-- Section: Featured Authors ===========-->
+<section
+  id="featured-authors"
+  class="pb-0"
+  container
+  container-lg-fluid
+  container-xl="container container-lg-fluid container-xl"
+>
+  <div class="container">
+    <div
+      class="bg-holder"
+      style="
+        background-image: url(assets/img/illustrations/team-bg.png);
+        background-position: left top;
+        background-size: auto;
+      "
+    ></div>
+    <!--/.bg-holder-->
+
+    <div class="row justify-content-center mb-6 circle-blend circle-warning">
+      <div class="col-lg-6 text-center mx-auto mb-7">
+        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">Featured Authors</h5>
+      </div>
+      <div class="col-xxl-9">
+        {% assign books = site.store | where: "category","Book" | sort:
+        'writer'%}
+        <div class="row flex-center g-0">
+          {% for book in books %} {% assign author = site.team | where: "name",
+          book.writer | first %}
+          <div class="col-sm-6 col-lg-3 text-center">
+            <div
+              class="
+                wrapper
+                {%
+                cycle
+                'shadow-square-right', 'shadow-square-left'
+                %}
+              "
+            >
+              <img
+                class="
+                  {%
+                  cycle
+                  'team-card-1', 'team-card-2', 'team-card-3', 'team-card-4'
+                  %}
+                "
+                src="{{author.photo }}"
+                width="200"
+                alt="..."
+              />
+            </div>
+
+            <a href="{{author.url}}">
+              <h5 class="fw-bold mt-3 mb-1">{{ author.name}}</h5></a
+            >
+            <p>{{ author.position }}</p>
+          </div>
+          {% else %}
+          <div class="col-sm-6 col-lg-3 text-center">
+            <p>Coming Soon</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto mx-auto mb-8">
+        <a
+          href="/our-team"
+          class="btn btn-lg btn-klean-outline order-0"
+          type="submit"
+        >
+          <span class="text-gradient fw-bold">View All Writers </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
+<div class="mt-6"></div>
